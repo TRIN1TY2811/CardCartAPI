@@ -15,14 +15,14 @@ namespace CardCartAPI.Controllers
             _dataService = dataService;
         }
 
-        // GET /Cards — Get all cards
+        // Cards
         [HttpGet(Name = "GetAllCards")]
         public ActionResult<List<Models.Cards>> GetAll()
         {
             return Ok(_dataService.cardlist);
         }
 
-        // POST /Cards — Add a new card
+        // Add 
         [HttpPost(Name = "AddCard")]
         public ActionResult Add([FromBody] Models.Cards newCard)
         {
@@ -37,7 +37,7 @@ namespace CardCartAPI.Controllers
             return Ok("Card added successfully.");
         }
 
-        // PUT /Cards/{choice} — Update a card by list position (1-based)
+        // Update 
         [HttpPut("{choice}", Name = "UpdateCard")]
         public ActionResult Update(int choice, [FromBody] Models.Cards updatedCard)
         {
@@ -52,7 +52,7 @@ namespace CardCartAPI.Controllers
             return Ok("Card updated successfully.");
         }
 
-        // DELETE /Cards/{choice} — Delete a card by list position (1-based)
+        // Delete 
         [HttpDelete("{choice}", Name = "DeleteCard")]
         public ActionResult Delete(int choice)
         {

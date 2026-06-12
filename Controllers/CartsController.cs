@@ -18,14 +18,14 @@ namespace CardCartAPI.Controllers
             _cartService = cartService;
         }
 
-        // GET /Carts — Get all cart items
+        // Carts
         [HttpGet(Name = "GetAllCarts")]
         public ActionResult<List<Models.Carts>> GetAll()
         {
             return Ok(_dataService.cartlist);
         }
 
-        // GET /Carts/total — Get grand total of all cart items
+        // total
         [HttpGet("total", Name = "GetCartTotal")]
         public ActionResult<string> GetTotal()
         {
@@ -33,7 +33,7 @@ namespace CardCartAPI.Controllers
             return Ok(result);
         }
 
-        // GET /Carts/discount — Get discount info based on grand total
+        // discount 
         [HttpGet("discount", Name = "GetCartDiscount")]
         public ActionResult<string> GetDiscount()
         {
@@ -41,7 +41,7 @@ namespace CardCartAPI.Controllers
             return Ok(result);
         }
 
-        // POST /Carts — Add a new cart item
+        // Add
         [HttpPost(Name = "AddCart")]
         public ActionResult Add([FromBody] Models.Carts newCart)
         {
@@ -56,7 +56,7 @@ namespace CardCartAPI.Controllers
             return Ok("Cart item added successfully.");
         }
 
-        // PUT /Carts/{choice} — Update a cart item by list position (1-based)
+        // Update 
         [HttpPut("{choice}", Name = "UpdateCart")]
         public ActionResult Update(int choice, [FromBody] Models.Carts updatedCart)
         {
@@ -71,7 +71,7 @@ namespace CardCartAPI.Controllers
             return Ok("Cart item updated successfully.");
         }
 
-        // DELETE /Carts/{choice} — Delete a cart item by list position (1-based)
+        // Delete
         [HttpDelete("{choice}", Name = "DeleteCart")]
         public ActionResult Delete(int choice)
         {
